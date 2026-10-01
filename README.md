@@ -172,6 +172,9 @@ fe = FuelEstimator(
 
 Aircraft parameters from open data are bundled in `src/acropole/data/aircraft_params.csv`
 and the ONNX model in `src/acropole/models/`; both are loaded by default.
+The table includes 51 aircraft typecodes, with additional configurations from OpenAP.
+See the [parameter sources](src/acropole/data/README.md) for aircraft, engine choices,
+unit conversions, and validation limitations.
 
 ## Command-Line
 

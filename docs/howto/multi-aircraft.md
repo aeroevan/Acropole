@@ -24,6 +24,29 @@ result = fe.estimate(flight)
 # A320 rows scored with A320 params, B738 rows with B738 params
 ```
 
+## Additional aircraft
+
+The bundled table includes 51 typecodes. OpenAP additions include the A320neo and
+737 MAX families, A340-300, A350-900, A380-800, 747-400/8, 757-200, 777-200/300/300ER,
+787-8/9, Citation II, ERJ145, and Gulfstream G650. Aircraft and engine source records
+are listed in the packaged `acropole/data/README.md`. These entries enable inference;
+their prediction accuracy has not been validated against flight measurements.
+
+## Boeing 767-300 variants
+
+The bundled `B763` entry covers the Boeing 767-300 family, including the -300ER,
+-300F, converted freighters (BCF/BDSF), and winglet-equipped variants under their
+shared ICAO typecode. All use one representative 767-300 configuration; the estimator
+does not distinguish their engines, weights, or winglets. For a known configuration,
+provide a custom `aircraft_params_path` with the appropriate `B763` values.
+
+The entry uses [OpenAP's 767-300 parameters](https://github.com/junzis/openap/blob/master/openap/data/aircraft/b763.yml)
+and its [CF6-80C2B2 take-off fuel flow](https://github.com/junzis/openap/blob/master/openap/data/engine/engines.csv)
+(2.124 kg/s per engine). The ceiling is converted from metres to feet, and maximum
+operating speed follows the existing CSV's Mach-to-knots convention. `TRAIN_ON` is
+zero; engine fleet percentage and validation confidence are unknown and left blank.
+Adding these parameters does not establish prediction accuracy for this family.
+
 ## Unsupported typecodes
 
 If a typecode is not present in the bundled aircraft parameters, those rows are left as
